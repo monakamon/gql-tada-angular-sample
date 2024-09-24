@@ -5,8 +5,9 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  template: `<div>
+    <h1>Hello</h1>
+  </div>`,
 })
 export class AppComponent {
   title = 'gql-tada-angular-sample';

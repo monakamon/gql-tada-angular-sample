@@ -1,5 +1,4 @@
-/* eslint-disable global-require,import/no-extraneous-dependencies */
-export default {
+module.exports = {
   tabWidth: 2,
   useTabs: false,
   singleQuote: true,
@@ -9,5 +8,5 @@ export default {
   trailingComma: 'es5',
   bracketSameLine: true,
   printWidth: 80,
-  plugins: ['prettier-plugin-tailwindcss', 'prettier-plugin-organize-imports'],
+  plugins: ['prettier-plugin-organize-imports'],
 };

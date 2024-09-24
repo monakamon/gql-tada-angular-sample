@@ -1,31 +1,29 @@
+import {
+  HttpClient,
+  HttpContext,
+  HttpHeaders,
+  HttpParams,
+} from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { print } from 'graphql';
 import type { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import {HttpClient, HttpContext, HttpHeaders, HttpParams} from "@angular/common/http";
-import {TypedDocumentNode} from "@graphql-typed-document-node/core";
 
-type HttpClientOptions = {
-  headers?:
-    | HttpHeaders
-    | {
-    [header: string]: string | string[];
-  };
+interface HttpClientOptions {
+  headers?: HttpHeaders | Record<string, string | string[]>;
   context?: HttpContext;
   observe?: any;
   params?:
     | HttpParams
-    | {
-    [param: string]:
-      | string
-      | number
-      | boolean
-      | ReadonlyArray<string | number | boolean>;
-  };
+    | Record<
+        string,
+        string | number | boolean | readonly (string | number | boolean)[]
+      >;
   reportProgress?: boolean;
   responseType?: any;
   withCredentials?: boolean;
-};
+}
 
 @Injectable({ providedIn: 'root' })
 export class GraphqlClient {
@@ -35,7 +33,7 @@ export class GraphqlClient {
     url: string;
     query: TypedDocumentNode<Result, Variables>;
     variables?: Variables;
-    options?: HttpClientOptions,
+    options?: HttpClientOptions;
   }): Observable<Result> {
     return this.httpClient
       .post<{ data: Result }>(param.url, {
