@@ -1,0 +1,9 @@
+schema: ./schema/pokeapi.graphql
+include:
+- ./**/*.graphql
+- ./src/**/*.ts
+extensions:
+  endpoints:
+    composer serve endpoint(for Local Development):
+      url: https://beta.pokeapi.co/graphql/v1beta
+      introspect: true
