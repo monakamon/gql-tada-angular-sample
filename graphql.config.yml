@@ -1,9 +1,0 @@
-schema: ./pokemon.graphql
-include:
-- ./**/*.graphql
-- ./src/**/*.ts
-extensions:
-  endpoints:
-    graphql-pokemon2:
-      url: https://graphql-pokemon2.vercel.app
-      introspect: true
