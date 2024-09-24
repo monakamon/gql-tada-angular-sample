@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "dl": "gql.tada generate-schema https://beta.pokeapi.co/graphql/v1beta -o pokeapi.graphql"
   },
   "private": true,
   "dependencies": {
