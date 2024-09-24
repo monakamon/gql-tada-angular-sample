@@ -8,7 +8,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dl": "gql.tada generate-schema https://beta.pokeapi.co/graphql/v1beta -o pokeapi.graphql",
+    "dl": "gql.tada generate-schema https://graphql-pokemon2.vercel.app",
     "output": "gql.tada generate-output",
     "lint": "ng lint"
   },

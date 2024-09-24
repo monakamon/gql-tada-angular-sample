@@ -24,7 +24,7 @@
     "plugins": [
       {
         "name": "gql.tada/ts-plugin",
-        "schema": "https://beta.pokeapi.co/graphql/v1beta",
+        "schema": "pokemon.graphql",
         "tadaOutputLocation": "src/graphql/graphql-env.d.ts",
       }
     ]
