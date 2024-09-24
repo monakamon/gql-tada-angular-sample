@@ -11,8 +11,7 @@ import { GraphqlClient } from './services/graphql-client';
   standalone: true,
   imports: [RouterOutlet, NgOptimizedImage],
   template: ` <div>
-    <h1>Hello</h1>
-    <pre>{{ $pikachuInfoStr() }}</pre>
+    <h1>Hello Pikachu</h1>
     @let pikachuImageUrl = $pikachuImageUrl();
     @if (pikachuImageUrl !== null) {
       <img
@@ -21,6 +20,9 @@ import { GraphqlClient } from './services/graphql-client';
         height="100"
         priority
         [ngSrc]="pikachuImageUrl" />
+    }
+    @if ($pikachuInfoStr() !== null) {
+      <pre>{{ $pikachuInfoStr() }}</pre>
     }
   </div>`,
 })
@@ -37,6 +39,18 @@ export class AppComponent {
             number
             name
             image
+            attacks {
+              fast {
+                damage
+                name
+                type
+              }
+              special {
+                damage
+                name
+                type
+              }
+            }
           }
         }
       `),
@@ -47,11 +61,14 @@ export class AppComponent {
     { initialValue: null }
   );
 
-  public readonly $pikachuImageUrl = computed(() => {
+  public readonly $pikachuImageUrl = computed<string | null>(() => {
     return this.$pikachuInfo()?.pokemon?.image ?? null;
   });
 
   public readonly $pikachuInfoStr = computed(() => {
+    if (this.$pikachuInfo() === null) {
+      return null;
+    }
     return JSON.stringify(this.$pikachuInfo(), null, 2);
   });
 }
