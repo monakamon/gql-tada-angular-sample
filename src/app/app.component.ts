@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { GraphqlClient } from './services/graphql-client';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
     <h1>Hello</h1>
   </div>`,
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  private readonly graphqlClient = inject(GraphqlClient);
+
+  public ngOnInit(): void {
+    this.graphqlClient.request({ query: graphql() });
+  }
+}
