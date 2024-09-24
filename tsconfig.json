@@ -25,7 +25,7 @@
       {
         "name": "gql.tada/ts-plugin",
         "schema": "https://beta.pokeapi.co/graphql/v1beta",
-        "tadaOutputLocation": "src/graphql/graphql-env.d.ts"
+        "tadaOutputLocation": "src/graphql/graphql-env.d.ts",
       }
     ]
   },
