@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { graphql } from './graphql';
 import { GraphqlClient } from './services/graphql-client';
 
 @Component({

@@ -9,6 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "dl": "gql.tada generate-schema https://beta.pokeapi.co/graphql/v1beta -o pokeapi.graphql",
+    "output": "gql.tada generate-output",
     "lint": "ng lint"
   },
   "private": true,
