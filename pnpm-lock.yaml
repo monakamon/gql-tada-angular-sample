@@ -32,6 +32,9 @@ importers:
       '@angular/router':
         specifier: ^18.2.0
         version: 18.2.5(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))(@angular/platform-browser@18.2.5(@angular/animations@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10)))(@angular/common@18.2.5(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10))(rxjs@7.8.1))(@angular/core@18.2.5(rxjs@7.8.1)(zone.js@0.14.10)))(rxjs@7.8.1)
+      gql.tada:
+        specifier: 1.8.9
+        version: 1.8.9(graphql@16.9.0)(typescript@5.5.4)
       rxjs:
         specifier: ~7.8.0
         version: 7.8.1
@@ -77,6 +80,20 @@ importers:
         version: 5.5.4
 
 packages:
+
+  '@0no-co/graphql.web@1.0.8':
+    resolution: {integrity: sha512-8BG6woLtDMvXB9Ajb/uE+Zr/U7y4qJ3upXi0JQHZmsKUJa7HjF/gFvmL2f3/mSmfZoQGRr9VoY97LCX2uaFMzA==}
+    peerDependencies:
+      graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+    peerDependenciesMeta:
+      graphql:
+        optional: true
+
+  '@0no-co/graphqlsp@1.12.14':
+    resolution: {integrity: sha512-0FoG2EkXxTY+++dKggmBkwY/skAE5dW2yqt4abHF0zrbCId4WreoFfhoTQT82FeD6gbkYe5FGrcn1x9SjnO77g==}
+    peerDependencies:
+      graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
+      typescript: ^5.0.0
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -1134,6 +1151,26 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@gql.tada/cli-utils@1.6.2':
+    resolution: {integrity: sha512-P4bOOayf6zR/uRWHmVyRz8auiuOzNmq8C0YFQbhj5TGGgHr5kkVI2ZIrplWsJqCBTYzpZEYzaxa9iGP6vuKA9Q==}
+    peerDependencies:
+      '@0no-co/graphqlsp': ^1.12.13
+      '@gql.tada/svelte-support': 1.0.1
+      '@gql.tada/vue-support': 1.0.1
+      graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
+      typescript: ^5.0.0
+    peerDependenciesMeta:
+      '@gql.tada/svelte-support':
+        optional: true
+      '@gql.tada/vue-support':
+        optional: true
+
+  '@gql.tada/internal@1.0.8':
+    resolution: {integrity: sha512-XYdxJhtHC5WtZfdDqtKjcQ4d7R1s0d1rnlSs3OcBEUbYiPoJJfZU7tWsVXuv047Z6msvmr4ompJ7eLSK5Km57g==}
+    peerDependencies:
+      graphql: ^15.5.0 || ^16.0.0 || ^17.0.0
+      typescript: ^5.0.0
 
   '@inquirer/checkbox@2.5.0':
     resolution: {integrity: sha512-sMgdETOfi2dUHT8r7TT1BTKOwNvdDGFDXYWtQ2J69SvlYNntk9I/gJe7r5yvMwwsuKnYbuRs3pNhx4tgNck5aA==}
@@ -2519,8 +2556,18 @@ packages:
   gopd@1.0.1:
     resolution: {integrity: sha512-d65bNlIadxvpb/A2abVdlqKqV563juRnZ1Wtk6s1sIR8uNsXR70xqIzVqxVf1eTqDunwT2MkczEeaezCKTZhwA==}
 
+  gql.tada@1.8.9:
+    resolution: {integrity: sha512-hW6SWLfkRUh/xDYSAb9Ps+Eb3kp7LyZ9GGrWUyfy3d8rG2bIAj+DvyZwxy4HyQHyjZLVJU1doJhvXrYvVez+xw==}
+    hasBin: true
+    peerDependencies:
+      typescript: ^5.0.0
+
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+
+  graphql@16.9.0:
+    resolution: {integrity: sha512-GGTKBX4SD7Wdb8mqeDLni2oaRGYQWjWHGKPQ24ZMnUtKfcsVoiv4uX8+LJr1K6U5VW2Lu1BwJnj7uiori0YtRw==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
   handle-thing@2.0.1:
     resolution: {integrity: sha512-9Qn4yBxelxoh2Ow62nP+Ka/kMnOXRi8BXnRaUwezLNhqelnN49xKz4F/dPP8OYLxLxq6JDtZb2i9XznUQbNPTg==}
@@ -4251,6 +4298,16 @@ packages:
 
 snapshots:
 
+  '@0no-co/graphql.web@1.0.8(graphql@16.9.0)':
+    optionalDependencies:
+      graphql: 16.9.0
+
+  '@0no-co/graphqlsp@1.12.14(graphql@16.9.0)(typescript@5.5.4)':
+    dependencies:
+      '@gql.tada/internal': 1.0.8(graphql@16.9.0)(typescript@5.5.4)
+      graphql: 16.9.0
+      typescript: 5.5.4
+
   '@ampproject/remapping@2.3.0':
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
@@ -5449,6 +5506,19 @@ snapshots:
 
   '@esbuild/win32-x64@0.23.0':
     optional: true
+
+  '@gql.tada/cli-utils@1.6.2(@0no-co/graphqlsp@1.12.14(graphql@16.9.0)(typescript@5.5.4))(graphql@16.9.0)(typescript@5.5.4)':
+    dependencies:
+      '@0no-co/graphqlsp': 1.12.14(graphql@16.9.0)(typescript@5.5.4)
+      '@gql.tada/internal': 1.0.8(graphql@16.9.0)(typescript@5.5.4)
+      graphql: 16.9.0
+      typescript: 5.5.4
+
+  '@gql.tada/internal@1.0.8(graphql@16.9.0)(typescript@5.5.4)':
+    dependencies:
+      '@0no-co/graphql.web': 1.0.8(graphql@16.9.0)
+      graphql: 16.9.0
+      typescript: 5.5.4
 
   '@inquirer/checkbox@2.5.0':
     dependencies:
@@ -6962,7 +7032,21 @@ snapshots:
     dependencies:
       get-intrinsic: 1.2.4
 
+  gql.tada@1.8.9(graphql@16.9.0)(typescript@5.5.4):
+    dependencies:
+      '@0no-co/graphql.web': 1.0.8(graphql@16.9.0)
+      '@0no-co/graphqlsp': 1.12.14(graphql@16.9.0)(typescript@5.5.4)
+      '@gql.tada/cli-utils': 1.6.2(@0no-co/graphqlsp@1.12.14(graphql@16.9.0)(typescript@5.5.4))(graphql@16.9.0)(typescript@5.5.4)
+      '@gql.tada/internal': 1.0.8(graphql@16.9.0)(typescript@5.5.4)
+      typescript: 5.5.4
+    transitivePeerDependencies:
+      - '@gql.tada/svelte-support'
+      - '@gql.tada/vue-support'
+      - graphql
+
   graceful-fs@4.2.11: {}
+
+  graphql@16.9.0: {}
 
   handle-thing@2.0.1: {}
 
