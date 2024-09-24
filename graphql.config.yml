@@ -1,9 +1,9 @@
-schema: ./schema/pokeapi.graphql
+schema: ./pokemon.graphql
 include:
 - ./**/*.graphql
 - ./src/**/*.ts
 extensions:
   endpoints:
-    composer serve endpoint(for Local Development):
-      url: https://beta.pokeapi.co/graphql/v1beta
+    graphql-pokemon2:
+      url: https://graphql-pokemon2.vercel.app
       introspect: true

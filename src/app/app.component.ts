@@ -15,6 +15,15 @@ export class AppComponent implements OnInit {
   private readonly graphqlClient = inject(GraphqlClient);
 
   public ngOnInit(): void {
-    this.graphqlClient.request({ query: graphql() });
+    this.graphqlClient.request({
+      url: '',
+      query: graphql(`
+        {
+          pokemon {
+            id
+          }
+        }
+      `),
+    });
   }
 }
