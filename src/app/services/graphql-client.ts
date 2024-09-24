@@ -13,6 +13,7 @@ import { map } from 'rxjs/operators';
 interface HttpClientOptions {
   headers?: HttpHeaders | Record<string, string | string[]>;
   context?: HttpContext;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   observe?: any;
   params?:
     | HttpParams
@@ -21,6 +22,7 @@ interface HttpClientOptions {
         string | number | boolean | readonly (string | number | boolean)[]
       >;
   reportProgress?: boolean;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   responseType?: any;
   withCredentials?: boolean;
 }
