@@ -1,11 +1,12 @@
 // @ts-check
-const eslint = require('@eslint/js');
-const tseslint = require('typescript-eslint');
-const angular = require('angular-eslint');
-const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
-const tailwind = require('eslint-plugin-tailwindcss');
+import eslint from '@eslint/js';
+import * as graphql from '@graphql-eslint/eslint-plugin';
+import angular from 'angular-eslint';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import tailwind from 'eslint-plugin-tailwindcss';
+import tseslint from 'typescript-eslint';
 
-module.exports = tseslint.config(
+export default tseslint.config(
   {
     files: ['**/*.ts'],
     extends: [
@@ -41,6 +42,19 @@ module.exports = tseslint.config(
       ...angular.configs.templateAccessibility,
     ],
     rules: {},
+  },
+  {
+    files: ['**/*.graphql'],
+    languageOptions: {
+      parser: graphql.parser,
+    },
+    plugins: {
+      '@graphql-eslint': { rules: graphql.rules },
+    },
+    rules: {
+      '@graphql-eslint/no-anonymous-operations': 'error',
+      '@graphql-eslint/no-duplicate-fields': 'error',
+    },
   },
   ...tailwind.configs['flat/recommended'],
   eslintPluginPrettierRecommended
