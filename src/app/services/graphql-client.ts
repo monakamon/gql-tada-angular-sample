@@ -31,7 +31,7 @@ type HttpClientOptions = {
 export class GraphqlClient {
   private readonly httpClient = inject(HttpClient);
 
-  public query<Result = unknown, Variables = unknown>(param: {
+  public request<Result = unknown, Variables = unknown>(param: {
     url: string;
     query: TypedDocumentNode<Result, Variables>;
     variables?: Variables;
