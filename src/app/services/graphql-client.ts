@@ -29,12 +29,12 @@ interface HttpClientOptions {
 export class GraphqlClient {
   private readonly httpClient = inject(HttpClient);
 
-  public request<Result = unknown, Variables = unknown>(param: {
+  public readonly request = <Result = unknown, Variables = unknown>(param: {
     url: string;
     query: TypedDocumentNode<Result, Variables>;
     variables?: Variables;
     options?: HttpClientOptions;
-  }): Observable<Result> {
+  }): Observable<Result> => {
     return this.httpClient
       .post<{ data: Result }>(param.url, {
         ...param.options,
@@ -48,5 +48,5 @@ export class GraphqlClient {
           return d.data;
         })
       );
-  }
+  };
 }
