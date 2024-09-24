@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { print } from 'graphql';
 import type { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {HttpClient, HttpContext, HttpHeaders, HttpParams} from "@angular/common/http";
+import {TypedDocumentNode} from "@graphql-typed-document-node/core";
 
 type HttpClientOptions = {
   headers?:
@@ -31,20 +31,19 @@ type HttpClientOptions = {
 export class GraphqlClient {
   private readonly httpClient = inject(HttpClient);
 
-  constructor() {
-  }
-
-  public query<Result = unknown, Variables = unknown>(options: {
+  public query<Result = unknown, Variables = unknown>(param: {
     url: string;
+    query: TypedDocumentNode<Result, Variables>;
+    variables?: Variables;
     options?: HttpClientOptions,
   }): Observable<Result> {
     return this.httpClient
-      .post<{ data: Result }>('POST', options.url, {
+      .post<{ data: Result }>(param.url, {
+        ...param.options,
         body: {
-          query: print(options.query),
-          variables: options.variables ?? {},
+          query: print(param.query),
+          variables: param.variables ?? {},
         },
-        ...options.requestOptions,
       })
       .pipe(
         map((d) => {
