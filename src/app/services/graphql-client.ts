@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
 interface HttpClientOptions {
   headers?: HttpHeaders | Record<string, string | string[]>;
   context?: HttpContext;
-  observe?: unknown;
+  observe?: any;
   params?:
     | HttpParams
     | Record<
@@ -21,7 +21,7 @@ interface HttpClientOptions {
         string | number | boolean | readonly (string | number | boolean)[]
       >;
   reportProgress?: boolean;
-  responseType?: unknown;
+  responseType?: any;
   withCredentials?: boolean;
 }
 
@@ -36,13 +36,14 @@ export class GraphqlClient {
     options?: HttpClientOptions;
   }): Observable<Result> => {
     return this.httpClient
-      .post<{ data: Result }>(param.url, {
-        ...param.options,
-        body: {
+      .post<{ data: Result }>(
+        param.url,
+        {
           query: print(param.query),
           variables: param.variables ?? {},
         },
-      })
+        param.options
+      )
       .pipe(
         map((d) => {
           return d.data;
