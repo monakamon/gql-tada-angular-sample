@@ -9,6 +9,4 @@ import { RouterOutlet } from '@angular/router';
     <h1>Hello</h1>
   </div>`,
 })
-export class AppComponent {
-  title = 'gql-tada-angular-sample';
-}
+export class AppComponent {}

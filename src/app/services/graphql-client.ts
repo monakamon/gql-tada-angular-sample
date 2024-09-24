@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
 interface HttpClientOptions {
   headers?: HttpHeaders | Record<string, string | string[]>;
   context?: HttpContext;
-  observe?: any;
+  observe?: unknown;
   params?:
     | HttpParams
     | Record<
@@ -21,7 +21,7 @@ interface HttpClientOptions {
         string | number | boolean | readonly (string | number | boolean)[]
       >;
   reportProgress?: boolean;
-  responseType?: any;
+  responseType?: unknown;
   withCredentials?: boolean;
 }
 
