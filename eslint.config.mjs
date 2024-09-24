@@ -54,6 +54,7 @@ export default tseslint.config(
     rules: {
       '@graphql-eslint/no-anonymous-operations': 'error',
       '@graphql-eslint/no-duplicate-fields': 'error',
+      'prettier/prettier': 'error',
     },
   },
   ...tailwind.configs['flat/recommended'],
